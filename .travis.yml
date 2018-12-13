@@ -4,9 +4,9 @@ addons:
   sonarcloud:
     organization: "edoreld-test-github"
     secure:
-      tokeen: $SONAR_TOKEN
+      token: $SONAR_TOKEN
 script:
-  - mvn -Dsonar.login=$SONAR_TOKEN -Dsonar.password clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar
+  - mvn -Dsonar.login=$SONAR_TOKEN -Dsonar.password= clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar
 cache:
   directories:
   - "$HOME/.m2"
