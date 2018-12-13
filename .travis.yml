@@ -1,22 +1,12 @@
 language: java
 jdk: oraclejdk8
-sudo: false
-before_install:
-   mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+addons:
+  organization: "edoreld-test-github"
+  token:
+    secure: $SONAR_TOKEN
 script:
-   mvn test -B
-language: java
-git:
-  depth: 1
-dist: trusty
+  - ./runSonarQubeAnalysis.sh
 cache:
   directories:
   - "$HOME/.m2"
-deploy:
-  provider: bluemixcloudfoundry
-  skip_cleanup: true
-  username: ziad.souiki@dauphine.eu
-  password: $BLUEMIX_PASSWORD
-  organization: ziad.souiki@dauphine.eu
-  space: dev
-  region: eu-gb
+
