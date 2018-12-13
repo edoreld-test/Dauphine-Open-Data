@@ -2,6 +2,10 @@ language: java
 jdk: oraclejdk8
 notifications:
   slack: open-data-talk:mtISmEkmb4mOYBXCJCsWVjWC
+addons:
+  organization: "edoreld-test-github"
+  token:
+    secure: $SONAR_TOKEN
 script:
   - ./runSonarQubeAnalysis.sh
 cache:
