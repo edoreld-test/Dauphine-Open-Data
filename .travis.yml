@@ -2,10 +2,11 @@ language: java
 jdk: oraclejdk8
 addons:
   sonarcloud:
+    organization: "edoreld-test-github"
     token:
       secure: $SONAR_TOKEN
 script:
-  - mvn -Dsonar.project.Key=edoreld-test_Dauphine-Open-Data -Dsonar.organization=edoreld-test-github -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=$SONAR_TOKEN clean org.jacoco:jacoco-maven-plugin:prepare-agent package sonar:sonar
+  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar
 cache:
   directories:
   - "$HOME/.m2"
